@@ -36,6 +36,8 @@
     flavor = "balanced";
     quick-tap-ms = <200>;
 };
+
+/ {
 /* --- buildエラーになるためここから追記 --- */
     aliases {
         led-red = &led0;
@@ -43,8 +45,6 @@
         led-blue = &led2;
     };
 /* --- ここまで追記 --- */
-
-/ {
     keymap {
         compatible = "zmk,keymap";
 
