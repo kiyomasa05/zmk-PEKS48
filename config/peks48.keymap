@@ -38,13 +38,24 @@
 };
 
 / {
+    behaviors {
+        backslash: backslash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BACKSLASH";
+            bindings = <&kp PIPE>, <&kp BACKSLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
 &kp ESCAPE  &kp Q      &kp W     &kp E             &kp R                  &kp T          &kp Y        &kp U             &kp I      &kp O           &kp P           &kp BACKSPACE
-&kp TAB     &kp A      &kp S     &kp D             &kp F                  &kp G          &kp H        &kp J             &kp K      &kp L           &kp SEMICOLON   &kp ENTER
+&kp TAB     &kp A      &kp S     &kp D             &kp F                  &kp G          &kp H        &kp J             &kp K      &kp L           &backslash      &kp ENTER
 &kp LSHIFT  &kp Z      &kp X     &kp C             &kp V                  &kp B          &kp N        &kp M             &kp COMMA  &kp DOT         &kp UP_ARROW    &kp RIGHT_SHIFT
 &kp LCTRL   &kp LCTRL  &kp LALT  &kp LEFT_COMMAND  &mt LSHIFT LANGUAGE_2  &lt 1 SPACE    &lt 2 ENTER  &lt 3 LANGUAGE_1  &kp MINUS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
