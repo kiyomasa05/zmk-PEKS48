@@ -34,8 +34,15 @@
 
 &mt {
     flavor = "balanced";
-    quick-tap-ms = <0>;
+    quick-tap-ms = <200>;
 };
+/* --- buildエラーになるためここから追記 --- */
+    aliases {
+        led-red = &led0;
+        led-green = &led1;
+        led-blue = &led2;
+    };
+/* --- ここまで追記 --- */
 
 / {
     keymap {
