@@ -38,23 +38,31 @@
 };
 
 / {
-    behaviors {
-        backslash: backslash {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BACKSLASH";
-            bindings = <&kp PIPE>, <&kp BACKSLASH>;
+    combos {
+        compatible = "zmk,combos";
 
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+        minus {
+            bindings = <&kp MINUS>;
+            key-positions = <10 9>;
         };
 
-        slash_question: slash_question {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SLASH_QUESTION";
-            bindings = <&kp SLASH>, <&kp QUESTION>;
+        equel {
+            bindings = <&kp EQUAL>;
+            key-positions = <11 10>;
+        };
 
+        quate {
+            bindings = <&kp DOUBLE_QUOTES>;
+            key-positions = <22 21>;
+        };
+    };
+
+    macros {
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            bindings = <&none>;
+            label = "NEW_MACRO";
         };
     };
 
@@ -63,19 +71,19 @@
 
         default_layer {
             bindings = <
-&kp ESCAPE  &kp Q      &kp W     &kp E             &kp R                  &kp T          &kp Y        &kp U             &kp I      &kp O           &kp P           &kp BACKSPACE
-&kp TAB     &kp A      &kp S     &kp D             &kp F                  &kp G          &kp H        &kp J             &kp K      &kp L           &backslash      &kp ENTER
-&kp LSHIFT  &kp Z      &kp X     &kp C             &kp V                  &kp B          &kp N        &kp M             &kp COMMA  &kp DOT         &kp UP_ARROW    &slash_question
-&kp LCTRL   &kp LCTRL  &kp LALT  &kp LEFT_COMMAND  &mt LSHIFT LANGUAGE_2  &lt 1 SPACE    &lt 2 ENTER  &lt 3 LANGUAGE_1  &kp MINUS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&kp Q               &kp W         &kp E         &kp R             &kp T        &kp UP_ARROW      &kp DOWN_ARROW   &kp Y             &kp U      &kp I           &kp O           &kp P
+&mt LEFT_CONTROL A  &kp S         &kp D         &kp F             &kp G        &kp LEFT_ARROW    &kp RIGHT_ARROW  &kp H             &kp J      &kp K           &kp L           &mt RCTRL ENTER
+&mt LSHIFT Z        &kp X         &kp C         &kp V             &kp B        &kp B             &kp N            &kp N             &kp M      &kp COMMA       &kp UP_ARROW    &mt RIGHT_SHIFT SLASH
+&lt 4 TAB           &kp LEFT_ALT  &kp LEFT_WIN  &lt 1 LANGUAGE_2  &lt 2 SPACE  &lt 3 TAB         &lt 3 BACKSPACE  &lt 2 LANGUAGE_1  &kp MINUS  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
             >;
         };
 
         layer_1 {
             bindings = <
-&trans  &kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp HASH      &kp DOLLAR  &kp PERCENT      &kp AMPERSAND         &kp SQT         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL          &kp TILDE
-&trans  &kp PLUS         &kp MINUS          &kp ASTERISK  &kp SLASH   &kp CARET        &kp NON_US_BACKSLASH  &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp LEFT_BRACKET       &kp RIGHT_BRACKET  &kp QUESTION
-&trans  &kp UNDERSCORE   &kp GRAVE          &kp AT_SIGN   &kp PIPE    &kp LESS_THAN    &kp GREATER_THAN      &kp SEMICOLON   &kp COLON             &kp PERIOD             &kp DOLLAR         &kp UNDERSCORE
-&trans  &trans           &trans             &trans        &trans      &trans           &trans                &trans          &trans                &trans                 &trans             &trans
+&kp ESCAPE  &kp EXCLAMATION  &kp DOUBLE_QUOTES  &kp HASH      &kp DOLLAR  &kp PERCENT      &kp AMPERSAND         &kp SQT         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp EQUAL          &kp TILDE
+&trans      &kp PLUS         &kp MINUS          &kp ASTERISK  &kp SLASH   &kp CARET        &kp NON_US_BACKSLASH  &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp LEFT_BRACKET       &kp RIGHT_BRACKET  &kp QUESTION
+&trans      &kp UNDERSCORE   &kp GRAVE          &kp AT_SIGN   &kp PIPE    &kp LESS_THAN    &kp GREATER_THAN      &kp SEMICOLON   &kp COLON             &kp PERIOD             &kp DOLLAR         &kp UNDERSCORE
+&trans      &trans           &trans             &trans        &trans      &trans           &trans                &trans          &trans                &trans                 &trans             &trans
             >;
         };
 
@@ -120,7 +128,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
             >;
         };
     };
