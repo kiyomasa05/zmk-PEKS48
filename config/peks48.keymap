@@ -51,13 +51,28 @@
         };
 
         combo_eq {
-            key-positions = <8 9>;
+            key-positions = <10 11>;
             bindings = <&kp EQUAL>;
         };
 
         combo_minus {
-            key-positions = <7 8>;
+            key-positions = <9 10>;
             bindings = <&kp MINUS>;
+        };
+
+        quote {
+            bindings = <&kp DOUBLE_QUOTES>;
+            key-positions = <21 22>;
+        };
+
+        braket {
+            bindings = <&brakets>;
+            key-positions = <13 14>;
+        };
+
+        braces {
+            bindings = <&braces>;
+            key-positions = <26 25>;
         };
     };
 
