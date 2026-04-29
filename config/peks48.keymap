@@ -45,11 +45,6 @@
 
         // minimal-keysのコンボ設定を移植（キーポジションはpeks48用に調整）
 
-        combo_parenthesis {
-            key-positions = <1 2>;
-            bindings = <&parenthesis>;
-        };
-
         combo_eq {
             key-positions = <10 11>;
             bindings = <&kp EQUAL>;
@@ -63,16 +58,6 @@
         quote {
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <21 22>;
-        };
-
-        braket {
-            bindings = <&brakets>;
-            key-positions = <13 14>;
-        };
-
-        braces {
-            bindings = <&braces>;
-            key-positions = <26 25>;
         };
     };
 
